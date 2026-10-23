@@ -5,7 +5,9 @@
 | Yunus Emeç | 1.Şube / Gece-B |   |
 
 **Çıktı:** Envanter + Zone / Conduit Diagram → Evidence Pack **EP 05 Zone & Conduit**
+
 **Şablon:** Safety 4.0 Bootcamp laboratuvar föyü, PaketPro 3000 Sürümü. PaketPro'da olduğu gibi varlık listesi makineye özel yazıldı; PaketPro'ya özgü 2. soru Venom'a çevrildi.
+
 **Kaynaklar:** [K…] etiketleri [00-makine-kimlik-karti.md](../00-makine-kimlik-karti.md) içindeki kaynak listesine aittir. **V-** varlık, **K-** kapı, **Z** bölge, **C** geçiş (conduit) kodudur.
 
 > **Kavram (föyden):** Zone = benzer kritiklikteki cihazları bir bölgeye topla. Conduit = bölgeler arası her geçişe kontrollü bir kapı. 62443'ün maddesini ezberlemiyoruz — mantığını uyguluyoruz.
@@ -74,6 +76,7 @@
 | **Z3 · Emniyet bölgesi** | V-12, acil stop zinciri, STO girişleri, V-17 (emniyet programı), V-32 | En yüksek — insanı korur |
 
 **2. Kablosuz el çarkı hangi bölgeye düşüyor — ve orada KALABİLİR Mİ? Neden?**
+
 *(PaketPro'daki orijinal soru: "Açık uzak bakım modülü hangi bölgeye düşüyor — ve orada KALABİLİR Mİ?" Venom'da belgelenmiş tek kablosuz kapı el çarkı olduğu için soru ona uyarlandı.)*
 
 El çarkı bugün fiilen **Z2'nin içinde** sayılıyor: doğrudan kontrol ünitesine hareket komutu veriyor [K1]. **Orada güvenilir bir Z2 üyesi olarak kalamaz.** Zone mantığında bölge içi güvenilir kabul edilir; oysa kablosuz bir cihazın sınırı fabrika duvarı değil, radyo menzilidir. El çarkı ayrı bir geçişle (**C3**) bağlanmalı. O geçişte şunlar kontrol edilmeli:
@@ -96,6 +99,11 @@ Katalog fotoğrafına göre el çarkının üzerinde bir acil durdurma butonu da
 
 ```mermaid
 flowchart TB
+  subgraph DIS["Dış dünya ve taşınabilir cihazlar"]
+    SRV(["Elfamak uzak servis<br/>(varsayım)"])
+    USB(["USB bellek"])
+    HW(["Kablosuz el çarkı<br/>+ acil stop"])
+  end
   subgraph Z0["Z0 · Kurumsal / ofis"]
     ERP["ERP · e-posta"]
     CAM["CAM bilgisayarı"]
@@ -109,21 +117,19 @@ flowchart TB
     IO["Yükleme · konveyör · vakum · sensörler"]
   end
   subgraph Z3["Z3 · Emniyet bölgesi (en yüksek koruma)"]
-    ES["Acil stop zinciri"]
-    SL["Emniyet mantığı (Safety PLC / röle)"]
+    ES["Acil stop zinciri<br/>(panel + el çarkı)"]
+    SL["Emniyet mantığı<br/>(Safety PLC / röle)"]
     STO["STO girişleri"]
   end
-  SRV(["Elfamak uzak servis"])
-  HW(["Kablosuz el çarkı"])
-  USB(["USB bellek"])
+  SRV -- "C2 · uzak servis" --> JS
+  JS -- "C2" --> PC
   CAM -- "C1 · program" --> PC
   USB -- "C1 · program" --> PC
-  SRV -- "C2" --> JS
-  JS -- "C2" --> PC
-  HW -- "C3 · kablosuz" --> PC
-  PC -- "C4 · yalnız durum okuma" --> SL
+  HW -- "C3 · hareket komutu" --> PC
+  HW -. "C3 · acil stop sinyali (kablosuz)" .-> ES
   PC --> DRV
   PC --> IO
+  PC -. "C4 · yalnız durum okuma" .-> SL
   ES --> SL --> STO
 ```
 
@@ -147,4 +153,5 @@ Bu altı karar, 62443'ün mantığını uçtan uca uygular: geçişi daralt, kim
 ---
 
 *Bu föyün çıktısı Zone / Conduit Diagram → Evidence Pack EP 05 Zone & Conduit başlığına oturur. EP 05 durumu: **Taslak** (bölgeler tasarlandı; sahada doğrulanmadı).*
+
 *Bu bir eğitim çıktısıdır, resmî denetim değildir.*

@@ -5,7 +5,9 @@
 | Yunus Emeç | 1.Şube / Gece-B |   |
 
 **Çıktı:** Safety Function Map → Evidence Pack **EP 03 Safety Functions**
+
 **Şablon:** Safety 4.0 Bootcamp laboratuvar föyü, PaketPro 3000 Sürümü. PaketPro'nun yaptığı gibi föy Venom 3X'e uyarlanmıştır: bağlam kutusu ve şema Venom'a göre yazıldı, sorular aynıdır.
+
 **Kaynaklar:** [K…] etiketleri [00-makine-kimlik-karti.md](../00-makine-kimlik-karti.md) içindeki kaynak listesine aittir.
 
 > **Venom 3X bağlamı:** Dönen 11 kW spindle ve kesici takım, hareketli köprü, otomatik yükleme sistemi ve operatör parça aldıkça ilerleyen boşaltma konveyörü el/kol için ciddi tehlikedir [K1], [K13]. Görünür koruma, kontrol panelindeki ve **kablosuz el çarkındaki** acil durdurma butonlarıdır [K13 s.7, s.10]; erişim algılama ve emniyet devresinin yapısı kamuya açık değildir. Makinenin PC tabanlı görünen bir kontrol paneli, program aktarımı ve kablosuz el çarkı vardır [K1], [K9], [K13] — sorular oraya gidecek.
@@ -48,6 +50,7 @@ Kırmızı çerçeve: **safety-related control system**. Turuncu kesikli çerçe
 Bu makinenin farkı şudur: otomatik yükleme ve boşaltma, operatörü her plakada makinenin hareketli kısımlarının yanına getirir. Tehlike yalnızca takımda değil, insan-makine temas noktalarındadır.
 
 **2. Safety function (emniyet fonksiyonu) hangisidir?**
+
 Bkz. aşağıdaki Safety Function Map. Kısaca: **SF-01 Acil durdurma**, **SF-02 Tehlike bölgesine erişimde durdurma**, **SF-03 Manuel modda güvenli hareket**, **SF-04 Vakum tutuşu kaybında durdurma**.
 
 SF-04 neden var? Ürün sayfasına göre vakum bölgeleri yazılımla, aktüatörle açılıp kapanıyor; ikinci pompa spindle'ın bulunduğu bölgeyi otomatik açıyor [K1]. Parça tutuşunu işleme sırasında kaybederse fırlar. Bunu yakalayıp makineyi durduran bir fonksiyon insanı korur; varlığı kamuya açık değil.
@@ -55,6 +58,7 @@ SF-04 neden var? Ürün sayfasına göre vakum bölgeleri yazılımla, aktüatö
 **Tabla Koruma emniyet fonksiyonu değildir.** Katalog, bu sistemin tablayı, takımı ve spindle motorunu koruduğunu söylüyor [K2], [K13 s.7]; insanı koruduğunu söylemiyor. Normal kontrol yazılımında çalışıyor ve "program hatalı olsa bile" diye tanıtılıyor: yani üretim hatasına karşı bir makine koruma fonksiyonu. **Ama emniyete dokunan bir yanı var:** devre dışı kalırsa veya eşiği değişirse takım tablaya veya parçaya çarpar; kırılan takım fırlayabilir. Bu yüzden LAB 2–3'te "emniyete dokunan veri" olarak izlenir (MF-01).
 
 **3. Safety-related control system nerede? Şemada işaretleyin.**
+
 Şemada kırmızı çerçeveyle işaretlendi: acil stop / erişim algılama → emniyet mantığı → STO / kontaktör. Kritik bilinmeyen, bu zincirin **nerede yaşadığı**:
 - **(a)** Kablolu bir emniyet rölesi veya ayrı bir Safety PLC ise, Beckhoff kontrol ünitesinden fiziksel olarak bağımsızdır.
 - **(b)** Aynı kontrol sistemine bağlı programlanabilir bir emniyet modülü ise, emniyet mantığı ile normal kontrol aynı haberleşme hattını ve mühendislik aracını paylaşır.
@@ -62,11 +66,13 @@ SF-04 neden var? Ürün sayfasına göre vakum bölgeleri yazılımla, aktüatö
 Katalogdaki "yüksek güvenlikli haberleşme protokolü" ifadesi [K1], [K13 s.7] (b)'yi düşündürebilir ama "güvenlik" sözcüğünün emniyet mi güvenlik mi olduğu belirsiz. Bu bilinmeyen, LAB 2'deki zone kararını belirler.
 
 **4. Normal PLC ile Safety PLC farkı nedir?**
+
 Normal kontrol (Venom'da Beckhoff kontrol ünitesi) üretimi yürütür: takım yolu, hız, takım değişimi, yükleme sırası. Hatası tolere edilir; sonuç ıskarta parçadır. Safety PLC sertifikalı, çift kanallı ve kendini sürekli test eden bir kontrolördür. Tek görevi tehlike anında güvenli duruma geçmektir; kendi arızasında bile güvenli tarafa düşecek şekilde tasarlanır.
 
 Yazılım karşılığı: normal PLC iş mantığıdır; Safety PLC ise ayrı süreçte koşan, kendini doğrulayan ve iş mantığı çökse bile sistemi durdurabilen bir devre kesicidir (circuit breaker). Tabla Koruma'nın normal kontrolde olması bu yüzden önemlidir: ne kadar akıllı olursa olsun, devre kesicinin değil iş mantığının parçasıdır.
 
 **5. PLr / SIL neden var? Bu fonksiyon için neden önemli?**
+
 Koruma keyfî değil, riskle orantılıdır. Risk grafiğinin üç sorusunu SF-02 (erişimde durdurma) için cevaplayınca:
 
 | Soru | Venom 3X | Gerekçe |
@@ -96,6 +102,7 @@ Koruma keyfî değil, riskle orantılıdır. Risk grafiğinin üç sorusunu SF-0
 | Takım boyu hafızası, tabla koruma eşiği (1 mm) | MF-01 (dolaylı emniyet) | Kontrol yazılımındaki veri | [K2], [K13 s.6] |
 
 **8. Siber müdahale hangi noktadan bu fonksiyonu bozar?**
+
 **Dijital kesişim noktası kontrol paneli PC'sidir.** Program, parametre ve (emniyet mantığı aynı sistemdeyse) emniyet konfigürasyonu tek bir noktadan erişilebilir. Bu noktaya giden kapılar:
 - USB / program aktarımı [K9]
 - kablosuz el çarkı — hem hareket komutu hem acil stop sinyali taşıyor [K1], [K13 s.10]
@@ -127,4 +134,5 @@ Kapılar LAB 2 envanterinde kodlanır, senaryolar LAB 3'te yazılır.
 ---
 
 *Bu föyün çıktısı Safety Function Map → Evidence Pack EP 03 Safety Functions başlığına oturur.*
+
 *Bu bir eğitim çıktısıdır, resmî denetim değildir.*

@@ -5,7 +5,9 @@
 | Yunus Emeç | 1.Şube / Gece-B |   |
 
 **Çıktı:** Risk Register → Evidence Pack **EP 04 Cyber Risk Assessment**
+
 **Şablon:** Safety 4.0 Bootcamp laboratuvar föyü, PaketPro 3000 Sürümü. "PaketPro'nun kapıları" ipucu kutusu Venom'un kapılarıyla değiştirildi; senaryo kalıbı ve puanlama aynıdır.
+
 **Girdi:** LAB 1 safety function'ları (SF-01…SF-04) ve LAB 2 kapıları (K-01…K-06). Formül: **LAB 2'deki kapı × LAB 1'deki korunan fonksiyon = bir tehdit senaryosu.** **Kaynaklar:** [00-makine-kimlik-karti.md](../00-makine-kimlik-karti.md).
 
 > **Kavram (föyden):** Senaryo beş parçadır: kim → hangi kapı → ne yapar → zincir → **FİZİKSEL** sonuç. Skor = L × S × E (her biri 1–3). Kural: **S=3 ise** skor düşük olsa bile senaryo öne alınır — insana zarar görünür kalır.
@@ -13,6 +15,7 @@
 > **Senaryo kalıbı (föyden):** `[PROFİL]`, `[GİRİŞ]` üzerinden içeri girer ve `[EYLEM]` yapar; bu, `[ZİNCİR]` yoluyla `[EMNİYET FONKSİYONU]`'nu bozar ve sonuçta `[FİZİKSEL ETKİ]` oluşur.
 
 > **Venom 3X'in kapıları (ipucu):** USB/program aktarımı (K-01) · uzak servis — varsayım (K-02) · kablosuz el çarkı — hareket + acil stop (K-03) · paylaşılan panel hesabı / parametre yetkisi (K-04) · fabrika/ofis ağı — varsayım (K-05) · emniyet konfigürasyonuna mühendislik erişimi (K-06).
+>
 > **Fiziksel sonuç adayları:** spindle/takımda el-kol kesilmesi, köprü/eksende ezilme, makaslı yükleme platformunda veya konveyörde el sıkışması, kırılan takımın veya tutuşunu kaybeden parçanın fırlaması.
 
 ## Ölçek göstergeleri (föy destesinden — her puan buna dayandırıldı)
@@ -91,6 +94,7 @@ R-04 bilerek eklendi. Skoru (9), R-02'nin (3) üç katı. Ama zincir "üretim du
 ## Çıktı — Risk Register (EP 04)
 
 **Tarih:** 22.10.2026 · **Hazırlayan:** Yunus Emeç (1.Şube / Gece-B) · **Makine ve sürüm:** Elfamak Venom 3X, otomatik yükleme/boşaltmalı konfigürasyon (2128 / 2137 / 2142), Beckhoff kontrol; yazılım sürümleri kamuya açık değil.
+
 **Sıralama:** skora göre; S3 bayrakları işaretli. **S3 yönetim listesi:** R-01, R-03, R-02.
 
 | Sıra | Risk ID | Senaryo (profil → kapı → eylem → zincir → fiziksel sonuç) | Etkilenen SF (LAB 1) | Zone / conduit (LAB 2) | L | S | E | Skor | Bant | S3 | Mevcut önlem | Önerilen önlem (gereksinim) | Artık risk | Sahip (RACI "A") — öneri | Hedef | Kanıt → EP |
@@ -107,5 +111,7 @@ R-04 bilerek eklendi. Skoru (9), R-02'nin (3) üç katı. Ama zincir "üretim du
 ---
 
 *Bu föyün çıktısı Risk Register → Evidence Pack EP 04 Risk Assessment başlığına oturur.*
+
 *Not (LAB 3 kuralı): Şablonu kopyalamak serbest, gerekçeyi kopyalamak değil — L/S/E gerekçeleri Venom 3X'in kendi kapı ve fonksiyonlarına göre yazıldı.*
+
 *Bu bir eğitim çıktısıdır, resmî denetim değildir.*

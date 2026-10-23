@@ -5,7 +5,9 @@
 | Yunus Emeç | 1.Şube / Gece-B |   |
 
 **Çıktı:** Secure Architecture → Evidence Pack **EP 02 + EP 06**
+
 **Şablon:** Safety 4.0 Bootcamp laboratuvar föyü, Genel Sürüm (Şişeleme Hattı). Sorular şablondaki gibidir; cevaplar Venom 3X içindir.
+
 **Ayrıntılı mimari ve gereksinimler:** [lab4-paketpro-surumu.md](lab4-paketpro-surumu.md).
 
 > **Kavram (föyden):** İki katman, ikisi de şart: erişim güvenliği + emniyet bağımsızlığı (girse bile insan korunur).
@@ -21,6 +23,7 @@ Beş ilke LAB 2 Görev B'nin mimariye dökülmüş hâlidir; LAB 3 R-04'ün L ve
 ## Görev B — functional safety köprüsü
 
 **1. Saldırgan tüm önlemlere rağmen içeri girerse: emniyet fonksiyonu etkilenir mi? Neden?**
+
 Emniyet mantığı kontrol ünitesinden ayrı (röle/Safety PLC, kendi STO'suyla) ise etkilenmez: saldırgan üretimi bozar, emniyeti bozamaz. Aynı sistemdeki bir modül ise etkilenebilir (LAB 3 R-02). Venom için bu ayrım kamuya açık değil; bu yüzden emniyet bağımsızlığı doğrulanması gereken bir gereksinimdir.
 
 **2. Emniyet fonksiyonunun kontrol sisteminden bağımsız çalışması için GEREKSİNİMİ yazın (çözümü değil).**
@@ -35,4 +38,5 @@ Emniyet mantığı kontrol ünitesinden ayrı (röle/Safety PLC, kendi STO'suyla
 ---
 
 *Bu föyün çıktısı Secure Architecture → Evidence Pack EP 02 + EP 06 başlığına oturur.*
+
 *Bu bir eğitim çıktısıdır, resmî denetim değildir.*

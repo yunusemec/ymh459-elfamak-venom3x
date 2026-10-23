@@ -1,10 +1,13 @@
 # 00 · Makine Kimlik Kartı — Elfamak Venom 3X
 
 > **YMH459 Yazılım Mühendisliğinde Güncel Konular** · Safety 4.0 analizi
+>
 > Ad Soyad: Yunus Emeç · Grup: 1.Şube / Gece-B · Tarih: 22.10.2026
 >
 > Bu belge yalnızca kamuya açık kaynaklara dayanır; firmayla iletişim kurulmamıştır.
+>
 > Her bilginin kaynağı köşeli parantezde verilmiştir ([K1] …). Kaynakta olmayan bilgi **Varsayım** olarak işaretlenmiştir.
+>
 > Bu bir eğitim çıktısıdır; resmî denetim, uygunluk değerlendirmesi veya belgelendirme değildir.
 
 ---
@@ -59,6 +62,7 @@
 | Merkezi yağlama | Otomatik, zaman ve dozaj ayarlı merkezi yağlama sistemi | [K13 s.6] |
 
 **Tabla Koruma Sistemi (yazılım):** Program hatalı olsa bile spindle'ın tablaya 1 mm kala kendini otomatik durdurduğu belirtiliyor; amaç tablanın, takımın ve spindle motorunun zarar görmemesi. Metin Venom'u adıyla anıyor. [K2], [K13 s.7]
+
 → *LAB 1'de değerlendirildi: emniyet fonksiyonu değil, makine koruma fonksiyonu.*
 
 ## 4. Kontrol ve dijital bileşenler (→ LAB 2 envanteri, altı kategori)

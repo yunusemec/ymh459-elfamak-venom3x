@@ -5,7 +5,9 @@
 | Yunus Emeç | 1.Şube / Gece-B |   |
 
 **Çıktı:** Envanter + Zone / Conduit Diagram → Evidence Pack **EP 05 Zone & Conduit**
+
 **Şablon:** Safety 4.0 Bootcamp laboratuvar föyü, Genel Sürüm (Şişeleme Hattı). Sorular ve varlık listesi şablondaki gibidir; cevaplar Venom 3X içindir.
+
 **Kaynaklar:** [00-makine-kimlik-karti.md](../00-makine-kimlik-karti.md). Varlık (V-), kapı (K-) ve bölge (Z) kodları [lab2-paketpro-surumu.md](lab2-paketpro-surumu.md) ile aynıdır.
 
 > **Kavram (föyden):** Zone = benzer kritiklikteki cihazları bir bölgeye topla. Conduit = bölgeler arası her geçişe kontrollü bir kapı. 62443'ün maddesini ezberlemiyoruz — mantığını uyguluyoruz.
@@ -45,6 +47,7 @@ Ayrıntılı 32 satırlık envanter ve **kapı listesi (K-01…K-06)** PaketPro 
 - **Z3 Emniyet:** acil stop zinciri, emniyet mantığı (Safety PLC / röle), STO girişleri
 
 **2. Safety PLC'yi hangi bölgeye koydunuz — neden?**
+
 **Z3'e, ayrı ve en yüksek korumalı bölgeye.** Çünkü insanı koruyan tek katman odur. Zone mantığında bölge içi güvenilir kabul edildiği için, Safety PLC normal kontrolle aynı bölgede olursa Z2'yi ele geçiren emniyeti de ele geçirir. Venom'da emniyet mantığının ayrı bir cihaz mı yoksa aynı kontrol sistemindeki bir modül mü olduğu bilinmiyor. İkinci durumda ayrım yalnızca mantıksaldır: emniyet konfigürasyonuna yalnızca ayrı yetkiyle ve makine başından erişilmeli, kontrol ünitesi emniyetin yalnızca durumunu okuyabilmelidir. Kablosuz el çarkındaki acil stop da Z3'e aittir.
 
 **3. Bölgeler arası geçişler (conduit) nerede? Her geçişte ne kontrol edilecek?**
@@ -55,6 +58,11 @@ Ayrıntılı 32 satırlık envanter ve **kapı listesi (K-01…K-06)** PaketPro 
 
 ```mermaid
 flowchart TB
+  subgraph DIS["Dış dünya ve taşınabilir cihazlar"]
+    SRV(["Uzak servis (varsayım)"])
+    USB(["USB bellek"])
+    HW(["Kablosuz el çarkı + acil stop"])
+  end
   subgraph Z0["Z0 · Kurumsal / ofis"]
     CAM["CAM bilgisayarı · ERP"]
   end
@@ -68,11 +76,14 @@ flowchart TB
   subgraph Z3["Z3 · Emniyet"]
     SL["Acil stop → emniyet mantığı → STO"]
   end
+  SRV -- "C2" --> JS
+  JS -- "C2" --> PC
   CAM -- "C1" --> PC
-  SRV(["Uzak servis"]) -- "C2" --> JS -- "C2" --> PC
-  HW(["Kablosuz el çarkı"]) -- "C3" --> PC
-  PC -- "C4 · yalnız okuma" --> SL
+  USB -- "C1" --> PC
+  HW -- "C3" --> PC
+  HW -. "acil stop sinyali (kablosuz)" .-> SL
   PC --> IO
+  PC -. "C4 · yalnız okuma" .-> SL
 ```
 
 ## Görev B — uzak erişim kararı (6 satır)
@@ -89,4 +100,5 @@ flowchart TB
 ---
 
 *Bu föyün çıktısı Zone / Conduit Diagram → Evidence Pack EP 05 Zone & Conduit başlığına oturur.*
+
 *Bu bir eğitim çıktısıdır, resmî denetim değildir.*

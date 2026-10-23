@@ -1,8 +1,11 @@
 # YMH459 · Safety 4.0 Analizi — Elfamak Venom 3X
 
 **Ders:** Yazılım Mühendisliğinde Güncel Konular (YMH459, İÖ) · Fırat Üniversitesi Teknoloji Fakültesi Yazılım Mühendisliği
+
 **Öğrenci:** Yunus Emeç (1.Şube / Gece-B) · **Dönem:** 2026 Güz
+
 **Firma / Makine:** Elfamak Makina Teknolojileri Ltd. Şti. / Venom 3X CNC İşleme Merkezi (ahşap CNC router)
+
 **Dernek:** AİMSAD (Ağaç İşleme Makine Sanayicileri)
 
 Bu depo, ilk dört Safety 4.0 laboratuvar föyünün Venom 3X makinesine uygulanmış hâlini içerir: her lab için **Genel Sürüm** (Şişeleme Hattı şablonu) ve **PaketPro Sürümü** (makineye uyarlanmış şablon) olmak üzere **4 + 4 = 8 föy**. SWOT + SMART analizi son aşamada eklenecektir.

@@ -5,7 +5,9 @@
 | Yunus Emeç | 1.Şube / Gece-B |   |
 
 **Çıktı:** Risk Register → Evidence Pack **EP 04 Cyber Risk Assessment**
+
 **Şablon:** Safety 4.0 Bootcamp laboratuvar föyü, Genel Sürüm (Şişeleme Hattı). Sorular şablondaki gibidir; senaryolar Venom 3X içindir.
+
 **Kodlar:** SF- (LAB 1), K- (LAB 2). Tam Risk Register (sahip, hedef, önlem, artık risk): [lab3-paketpro-surumu.md](lab3-paketpro-surumu.md).
 
 > **Kavram (föyden):** Senaryo beş parçadır: kim → hangi kapı → ne yapar → zincir → **FİZİKSEL** sonuç. Skor = L × S × E (her biri 1–3). Kural: **S=3 ise** skor düşük olsa bile senaryo öne alınır.
@@ -32,9 +34,11 @@ Kritik 18–27 · Yüksek 9–17 · Orta 4–8 · Düşük 1–3
 - **E:** K-03 için 2 (kablosuz ama fabrika içi menzil), K-01 için 2 (makine başı USB veya fabrika ağı), K-06 için 1 (yalnız makine başı).
 
 **1. En yüksek öncelikli senaryonuz hangisi? Bir cümleyle: neden bu?**
+
 R-01: en yüksek skor (12) ve S=3'e sahip, üstelik aynı kapıdan hem SF-03'e hem de el çarkındaki acil stop üzerinden SF-01'e dokunuyor.
 
 **2. S=3 olup skoru düşük kalan senaryonuz var mı? Nasıl görünür kılacaksınız?**
+
 Evet, R-02 (skor 3, S=3). Görünür kılmak için S3 bayrağı konur ve R-02 ayrı bir S3 yönetim listesine alınır. Skoru 9 olan ama S=1 olan fidye senaryosunun (R-04) da önüne geçirilir. Düşük skoru kapalı kapıdan (E=1) geliyor; bu yüzden kapıyı kapalı tutmak da önlemin bir parçasıdır.
 
 > **Altın kural:** Zincir "veri çalındı / üretim durdu" ile bitiyorsa emniyet bulgusu değildir. Uzak servis fidyesi (R-04, skor 9, S=1) bu yüzden işletme riski olarak ayrı tutuldu.
@@ -42,4 +46,5 @@ Evet, R-02 (skor 3, S=3). Görünür kılmak için S3 bayrağı konur ve R-02 ay
 ---
 
 *Bu föyün çıktısı Risk Register → Evidence Pack EP 04 Risk Assessment başlığına oturur.*
+
 *Bu bir eğitim çıktısıdır, resmî denetim değildir.*

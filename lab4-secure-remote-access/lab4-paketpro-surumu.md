@@ -5,7 +5,9 @@
 | Yunus Emeç | 1.Şube / Gece-B | 24.10.2026 |
 
 **Çıktı:** Secure Architecture → Evidence Pack **EP 02 + EP 06**
+
 **Şablon:** Safety 4.0 Bootcamp laboratuvar föyü, PaketPro 3000 Sürümü. "Mevcut" ipucu ve functional safety köprüsü sorusu Venom'a uyarlandı.
+
 **Girdi:** LAB 3'ün en yüksek skorlu senaryoları (R-01, R-03: 12) ve S3 senaryosu (R-02). **Kaynaklar:** [00-makine-kimlik-karti.md](../00-makine-kimlik-karti.md).
 
 > **Kavram (föyden):** İki katman, ikisi de şart: **erişim güvenliği** (girişi zorlaştır: ara nokta, VPN, MFA, kişisel hesap, kayıt, varsayılan kapalı) + **emniyet bağımsızlığı** (girse bile insan korunur).
@@ -38,13 +40,19 @@ Bu, LAB 2 Görev B'deki altı kararın mimariye dökülmüş hâlidir ve LAB 3't
 Venom için bu ayrım kamuya açık değil (LAB 1 Soru 3, LAB 2 kilit soru). Katalogdaki "yüksek güvenlikli haberleşme protokolü" ifadesi tek başına emniyet bağımsızlığını kanıtlamaz. **Bu yüzden emniyet bağımsızlığı bir varsayım değil, doğrulanması gereken bir gereksinimdir.**
 
 **2. Acil durdurma / erişimde durdurma zincirinin uzak bakım ve program yolundan etkilenmemesi için GEREKSİNİMİ yazın (çözümü değil).**
+
 *(PaketPro'daki orijinal: "Işık perdesi zincirinin uzak bakım yolundan etkilenmemesi için gereksinimi yazın." Venom'da ışık perdesi belgeli olmadığından, erişimde durdurma + acil durdurma zincirine uyarlandı.)*
 
 > **GEREKSİNİM (çözüm değil):**
+>
 > **R1.** Acil durdurma, tehlike bölgesine erişimde durdurma ve vakum tutuşu kaybında durdurma fonksiyonları (SF-01, SF-02, SF-04), normal kontrol sisteminin (Beckhoff kontrol ünitesi, panel PC'si) ele geçirilmesi hâlinde dahi işlevini sürdürebilmelidir; yani bu fonksiyonların yürütülmesi, kontrol PC'sinden gelen hiçbir komuta bağlı olmamalıdır.
+>
 > **R2.** Emniyet fonksiyonlarının parametreleri (durdurma tepki süresi, STO ayarı, hız sınırı) hiçbir uzak yoldan ve program/USB aktarımından değiştirilememeli; değişiklik yalnızca makine başında, ayrı yetkiyle ve kayıt altında yapılabilmelidir.
+>
 > **R3.** Kontrol sistemi ile emniyet sistemi arasındaki bağ yalnızca **durum okuma** yönünde olmalı (LAB 2 C4); kontrol tarafı emniyet mantığına yazamamalıdır.
+>
 > **R4.** Emniyet parametrelerinde her değişiklikten sonra, makine yeniden üretime alınmadan önce bir **emniyet doğrulaması (safety validation)** yapılmalı ve kaydı tutulmalıdır.
+>
 > **R5.** Kablosuz el çarkındaki acil durdurma, radyo bağlantısının kesilmesi, bozulması veya sinyalin doğrulanamaması hâlinde makineyi güvenli duruma geçirmelidir (fail-safe); bağlantı kaybı hiçbir koşulda "acil stop basılmadı" olarak yorumlanmamalıdır.
 
 **Tasarım kararı firmanındır.** Bu föy çözümü (hangi marka emniyet PLC, hangi ağ ürünü) seçmez; neyin sağlanması gerektiğini tanımlar. Zafiyet bir saldırı aracına değil, bir gereksinime çevrildi.
@@ -78,5 +86,7 @@ flowchart TB
 ---
 
 *Bu föyün çıktısı Secure Architecture → Evidence Pack EP 02 + EP 06 başlığına oturur.*
+
 *Tarafsızlık notu: Bu föy çözüm tasarlatmaz; gereksinimi tanımlatır.*
+
 *Bu bir eğitim çıktısıdır, resmî denetim değildir.*
