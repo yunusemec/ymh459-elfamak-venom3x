@@ -8,6 +8,8 @@
 
 **Dernek:** AİMSAD (Ağaç İşleme Makine Sanayicileri)
 
+**Proje panosu (Trello):** https://trello.com/b/yyuuVcIz/ymh459-elfamak-venom-3x-safety-40
+
 Bu depo, ilk dört Safety 4.0 laboratuvar föyünün Venom 3X makinesine uygulanmış hâlini içerir: her lab için **Genel Sürüm** (Şişeleme Hattı şablonu) ve **PaketPro Sürümü** (makineye uyarlanmış şablon) olmak üzere **4 + 4 = 8 föy**. SWOT + SMART analizi son aşamada eklenecektir.
 
 ## Klasör yapısı
