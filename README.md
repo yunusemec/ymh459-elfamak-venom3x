@@ -10,7 +10,7 @@
 
 **Proje panosu (Trello):** https://trello.com/b/yyuuVcIz/ymh459-elfamak-venom-3x-safety-40
 
-Bu depo, ilk dört Safety 4.0 laboratuvar föyünün Venom 3X makinesine uygulanmış hâlini içerir: her lab için **Genel Sürüm** (Şişeleme Hattı şablonu) ve **PaketPro Sürümü** (makineye uyarlanmış şablon) olmak üzere **4 + 4 = 8 föy**. SWOT + SMART analizi son aşamada eklenecektir.
+Bu depo, Safety 4.0 laboratuvar föylerinin Venom 3X makinesine uygulanmış hâlini içerir: her lab için **Genel Sürüm** (Şişeleme Hattı şablonu) ve **PaketPro Sürümü** (makineye uyarlanmış şablon). Şu an **LAB 1–5 (10 föy)** hazır; LAB 6–7 ile SWOT + SMART analizi sırayla eklenecektir.
 
 ## Klasör yapısı
 
@@ -27,19 +27,22 @@ ymh459-elfamak-venom3x/
 ├── lab3-threat-risk-matrix/             Çıktı: Risk Register → EP 04
 │   ├── lab3-genel-surum.md
 │   └── lab3-paketpro-surumu.md
-└── lab4-secure-remote-access/           Çıktı: Secure Architecture → EP 02 + EP 06
-    ├── lab4-genel-surum.md
-    └── lab4-paketpro-surumu.md
+├── lab4-secure-remote-access/           Çıktı: Secure Architecture → EP 02 + EP 06
+│   ├── lab4-genel-surum.md
+│   └── lab4-paketpro-surumu.md
+└── lab5-sbom-cve-patch/                 Çıktı: Vulnerability Decision → EP 09 · 10 · 11
+    ├── lab5-genel-surum.md
+    └── lab5-paketpro-surumu.md
 ```
 
 - **`labN-genel-surum.md`** — Genel Sürüm föyü (Şişeleme Hattı). Sorular şablondaki gibidir, cevaplar Venom 3X içindir.
 - **`labN-paketpro-surumu.md`** — PaketPro 3000 Sürümü föyü. PaketPro'nun kendi makinesine yaptığı gibi föy Venom 3X'e uyarlanmıştır (bağlam kutusu, varlık listesi, kapılar, makineye özel sorular); tam çıktı tabloları buradadır.
 
-İki sürüm aynı kodları kullanır: **SF-** emniyet fonksiyonu (LAB 1) · **V-** varlık, **K-** kapı, **Z** bölge, **C** geçiş (LAB 2) · **R-** risk (LAB 3) · **R1–R5** gereksinim (LAB 4).
+İki sürüm aynı kodları kullanır: **SF-** emniyet fonksiyonu (LAB 1) · **V-** varlık, **K-** kapı, **Z** bölge, **C** geçiş (LAB 2) · **R-** risk (LAB 3) · **R1–R5** gereksinim (LAB 4) · **S-** SBOM bileşeni, **VD-** zafiyet kararı (LAB 5).
 
 ## Okuma sırası
 
-`00 → lab1 → lab2 → lab3 → lab4`. Her lab bir öncekinin çıktısını kullanır: LAB 3 senaryoları LAB 1 fonksiyonları ile LAB 2 kapılarından doğar; LAB 4 LAB 3'ün en yüksek skorlu senaryolarını tasarım gereksinimleriyle kırar.
+`00 → lab1 → lab2 → lab3 → lab4 → lab5`. Her lab bir öncekinin çıktısını kullanır: LAB 3 senaryoları LAB 1 fonksiyonları ile LAB 2 kapılarından doğar; LAB 4 LAB 3'ün en yüksek skorlu senaryolarını tasarım gereksinimleriyle kırar; LAB 5 bir zafiyet kaydını LAB 2 kapıları ve LAB 3 senaryoları üzerinden karara bağlar.
 
 ## Yöntem ve sınırlar
 
