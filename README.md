@@ -10,7 +10,7 @@
 
 **Proje panosu (Trello):** https://trello.com/b/yyuuVcIz/ymh459-elfamak-venom-3x-safety-40
 
-Bu depo, Safety 4.0 laboratuvar föylerinin Venom 3X makinesine uygulanmış hâlini içerir: her lab için **Genel Sürüm** (Şişeleme Hattı şablonu) ve **PaketPro Sürümü** (makineye uyarlanmış şablon). Şu an **LAB 1–5 (10 föy)** hazır; LAB 6–7 ile SWOT + SMART analizi sırayla eklenecektir.
+Bu depo, Safety 4.0 laboratuvar föylerinin Venom 3X makinesine uygulanmış hâlini içerir: her lab için **Genel Sürüm** (Şişeleme Hattı şablonu) ve **PaketPro Sürümü** (makineye uyarlanmış şablon). Şu an **LAB 1–6 (12 föy)** hazır; LAB 7 ile SWOT + SMART analizi sırayla eklenecektir.
 
 ## Klasör yapısı
 
@@ -30,9 +30,12 @@ ymh459-elfamak-venom3x/
 ├── lab4-secure-remote-access/           Çıktı: Secure Architecture → EP 02 + EP 06
 │   ├── lab4-genel-surum.md
 │   └── lab4-paketpro-surumu.md
-└── lab5-sbom-cve-patch/                 Çıktı: Vulnerability Decision → EP 09 · 10 · 11
-    ├── lab5-genel-surum.md
-    └── lab5-paketpro-surumu.md
+├── lab5-sbom-cve-patch/                 Çıktı: Vulnerability Decision → EP 09 · 10 · 11
+│   ├── lab5-genel-surum.md
+│   └── lab5-paketpro-surumu.md
+└── lab6-cra-incident-simulation/        Çıktı: Incident Workflow → EP 13
+    ├── lab6-genel-surum.md
+    └── lab6-paketpro-surumu.md
 ```
 
 - **`labN-genel-surum.md`** — Genel Sürüm föyü (Şişeleme Hattı). Sorular şablondaki gibidir, cevaplar Venom 3X içindir.
@@ -42,7 +45,7 @@ ymh459-elfamak-venom3x/
 
 ## Okuma sırası
 
-`00 → lab1 → lab2 → lab3 → lab4 → lab5`. Her lab bir öncekinin çıktısını kullanır: LAB 3 senaryoları LAB 1 fonksiyonları ile LAB 2 kapılarından doğar; LAB 4 LAB 3'ün en yüksek skorlu senaryolarını tasarım gereksinimleriyle kırar; LAB 5 bir zafiyet kaydını LAB 2 kapıları ve LAB 3 senaryoları üzerinden karara bağlar.
+`00 → lab1 → lab2 → lab3 → lab4 → lab5 → lab6`. Her lab bir öncekinin çıktısını kullanır: LAB 3 senaryoları LAB 1 fonksiyonları ile LAB 2 kapılarından doğar; LAB 4 LAB 3'ün en yüksek skorlu senaryolarını tasarım gereksinimleriyle kırar; LAB 5 bir zafiyet kaydını LAB 2 kapıları ve LAB 3 senaryoları üzerinden karara bağlar; LAB 6 aynı kapılardan biri kullanıldığında olay müdahalesini CRA'nın bildirim takvimine oturtur.
 
 ## Yöntem ve sınırlar
 
