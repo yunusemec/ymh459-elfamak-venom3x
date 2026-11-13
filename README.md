@@ -10,7 +10,7 @@
 
 **Proje panosu (Trello):** https://trello.com/b/yyuuVcIz/ymh459-elfamak-venom-3x-safety-40
 
-Bu depo, Safety 4.0 laboratuvar föylerinin Venom 3X makinesine uygulanmış hâlini içerir: her lab için **Genel Sürüm** (Şişeleme Hattı şablonu) ve **PaketPro Sürümü** (makineye uyarlanmış şablon). Şu an **LAB 1–6 (12 föy)** hazır; LAB 7 ile SWOT + SMART analizi sırayla eklenecektir.
+Bu depo, Safety 4.0 laboratuvar föylerinin Venom 3X makinesine uygulanmış hâlini içerir: her lab için **Genel Sürüm** (Şişeleme Hattı şablonu) ve **PaketPro Sürümü** (makineye uyarlanmış şablon). Yedi labın tamamı (**14 föy**) ve bütün bulguları stratejiye çeviren **SWOT · TOWS · SMART** analizi tamamlandı.
 
 ## Klasör yapısı
 
@@ -33,19 +33,23 @@ ymh459-elfamak-venom3x/
 ├── lab5-sbom-cve-patch/                 Çıktı: Vulnerability Decision → EP 09 · 10 · 11
 │   ├── lab5-genel-surum.md
 │   └── lab5-paketpro-surumu.md
-└── lab6-cra-incident-simulation/        Çıktı: Incident Workflow → EP 13
-    ├── lab6-genel-surum.md
-    └── lab6-paketpro-surumu.md
+├── lab6-cra-incident-simulation/        Çıktı: Incident Workflow → EP 13
+│   ├── lab6-genel-surum.md
+│   └── lab6-paketpro-surumu.md
+├── lab7-ai-safety-challenge/            Çıktı: AI Fail-Safe Decision → EP 03 + EP 15
+│   ├── lab7-genel-surum.md
+│   └── lab7-paketpro-surumu.md
+└── swot-smart.md                        SWOT → TOWS → SMART → 90 günlük plan
 ```
 
 - **`labN-genel-surum.md`** — Genel Sürüm föyü (Şişeleme Hattı). Sorular şablondaki gibidir, cevaplar Venom 3X içindir.
 - **`labN-paketpro-surumu.md`** — PaketPro 3000 Sürümü föyü. PaketPro'nun kendi makinesine yaptığı gibi föy Venom 3X'e uyarlanmıştır (bağlam kutusu, varlık listesi, kapılar, makineye özel sorular); tam çıktı tabloları buradadır.
 
-İki sürüm aynı kodları kullanır: **SF-** emniyet fonksiyonu (LAB 1) · **V-** varlık, **K-** kapı, **Z** bölge, **C** geçiş (LAB 2) · **R-** risk (LAB 3) · **R1–R5** gereksinim (LAB 4) · **S-** SBOM bileşeni, **VD-** zafiyet kararı (LAB 5).
+İki sürüm aynı kodları kullanır: **SF-** emniyet fonksiyonu (LAB 1) · **V-** varlık, **K-** kapı, **Z** bölge, **C** geçiş (LAB 2) · **R-** risk (LAB 3) · **R1–R5** gereksinim (LAB 4) · **S-** SBOM bileşeni, **VD-** zafiyet kararı (LAB 5) · **R-AI-1…4** YZ mimari kuralı (LAB 7) · **S/W/O/T**, **SO/ST/WO/WT**, **H1–H6** (SWOT-SMART).
 
 ## Okuma sırası
 
-`00 → lab1 → lab2 → lab3 → lab4 → lab5 → lab6`. Her lab bir öncekinin çıktısını kullanır: LAB 3 senaryoları LAB 1 fonksiyonları ile LAB 2 kapılarından doğar; LAB 4 LAB 3'ün en yüksek skorlu senaryolarını tasarım gereksinimleriyle kırar; LAB 5 bir zafiyet kaydını LAB 2 kapıları ve LAB 3 senaryoları üzerinden karara bağlar; LAB 6 aynı kapılardan biri kullanıldığında olay müdahalesini CRA'nın bildirim takvimine oturtur.
+`00 → lab1 → lab2 → lab3 → lab4 → lab5 → lab6 → lab7 → swot-smart`. Her lab bir öncekinin çıktısını kullanır: LAB 3 senaryoları LAB 1 fonksiyonları ile LAB 2 kapılarından doğar; LAB 4 LAB 3'ün en yüksek skorlu senaryolarını tasarım gereksinimleriyle kırar; LAB 5 bir zafiyet kaydını LAB 2 kapıları ve LAB 3 senaryoları üzerinden karara bağlar; LAB 6 aynı kapılardan biri kullanıldığında olay müdahalesini CRA'nın bildirim takvimine oturtur; LAB 7 olası bir YZ eklentisini emniyet zincirinin dışında tutan kuralları koyar. `swot-smart.md` bu yedi labdan her hafta toplanan bulguları SWOT'a, stratejiye ve 90 günlük plana çevirir.
 
 ## Yöntem ve sınırlar
 
